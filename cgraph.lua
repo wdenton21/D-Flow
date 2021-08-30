@@ -34,6 +34,7 @@ API
 
 	cgraph.create()
 	cgraph.getcycleduration()
+	cgraph.getncycles()
 	cgraph.getoffset()
 	cgraph.getscaling()
 	cgraph.gettrailduration()
@@ -42,6 +43,7 @@ API
 	cgraph.help()
 	cgraph.setcycleduration(duration)
 	cgraph.setdistance(z)
+	cgraph.setncycles(ncycles)
 	cgraph.setoffset(x,y)
 	cgraph.setscaling(x,y)
 	cgraph.settrailduration(duration)
@@ -118,6 +120,7 @@ function cgraph.help(self)
 	print("\t- Functions:")
 	print("\t\t- create()")
 	print("\t\t- getcycleduration:", cgraph["Cycle"]["Duration"])
+	print("\t\t- getncycles:", cgraph["Trail"]["nCycles"])
 	print("\t\t- getoffset:", cgraph["Offset"][1], cgraph["Offset"][2])
 	print("\t\t- getscaling:", cgraph["Scaling"][1], cgraph["Scaling"][2])
 	print("\t\t- gettrailduration:", cgraph["Trail"]["Duration"]["Time"])
@@ -126,6 +129,7 @@ function cgraph.help(self)
 	print("\t\t- help()")
 	print("\t\t- setcycleduration(duration)")
 	print("\t\t- setdistance(z)")
+	print("\t\t- setncycles(ncycles)")
 	print("\t\t- setoffset(x,y)")
 	print("\t\t- setscaling(x,y)")
 	print("\t\t- settrailduration(duration)")
@@ -222,6 +226,13 @@ end
 function cgraph.settrailwidth(self,value)
 	local value = value or self:gettrailwidth()
 	self["Trail"]["Width"]["Value"] = value
+end
+function cgraph.getncycles(self)
+	return self["Trail"]["nCycles"]
+end
+function cgraph.setncycles(self,ncycles)
+	local ncycles = ncycles or self["Trail"]["nCycles"]
+	self["Trail"]["nCycles"] = ncycles
 end
 -- Create output channels for each input channel
 Outputs = {}
