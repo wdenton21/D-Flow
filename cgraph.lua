@@ -52,7 +52,7 @@ API
 
 DEPENDENCIES
 
-  D-Flow (Version 3.34.0).
+  D-Flow 3.34.0 (May work with earlier versions).
   Modules:
     - copy.lua
 	- set outputs.lua
